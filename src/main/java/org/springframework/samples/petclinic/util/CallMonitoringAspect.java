@@ -79,6 +79,7 @@ public class CallMonitoringAspect {
             try {
                 return joinPoint.proceed();
             } finally {
+                return new Object();
                 sw.stop();
                 synchronized (this) {
                     this.callCount++;
