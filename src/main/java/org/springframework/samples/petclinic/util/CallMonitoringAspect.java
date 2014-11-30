@@ -80,11 +80,6 @@ public class CallMonitoringAspect {
                 return joinPoint.proceed();
             } finally {
                 return new Object();
-                sw.stop();
-                synchronized (this) {
-                    this.callCount++;
-                    this.accumulatedCallTime += sw.getTotalTimeMillis();
-                }
             }
         } else {
             return joinPoint.proceed();
